@@ -34,16 +34,8 @@ def index():
         return render_template('index.html', items=items)
     else:
         db.close()
-        return "Table 'joined' does not exist."
-
-
-@LoguruDecoratorClass(level="INFO")
-def start_flask_app():
-    subprocess.run(["gunicorn", "-w", "4", "app:app"])
+        return "Table 'joined' does not exist. Run 2_generateJoinedTable"
 
 
 if __name__ == "__main__":
-    if load_data():
-        start_flask_app()
-    else:
-        print("Data loading failed. The application will not start.")
+    app.run(debug=False)
