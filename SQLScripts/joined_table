@@ -54,9 +54,4 @@ FROM
 			*
 		FROM
 			joined_table
-	) AS subquery;
-
-SELECT
-	*
-FROM
-	joined
+	) AS subquery
