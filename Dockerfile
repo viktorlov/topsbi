@@ -13,7 +13,7 @@ COPY FlaskModule/ FlaskModule/
 COPY LoguruModule/ LoguruModule/
 COPY PostgresDBModule/ PostgresDBModule/
 COPY SQLScripts/ SQLScripts/
-COPY template/ template/
+COPY templates/ templates/
 COPY .env .env
 COPY .env.docker .env.docker
 COPY app.py app.py
