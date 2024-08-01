@@ -1,0 +1,13 @@
+SELECT
+	"s_PK",
+	"s_ObjectID",
+	"s_Guid",
+	"s_CreationDate",
+	"s_EditDate",
+	"s_ClassID",
+	"s_LogicalObjectGuid",
+	"s_RevisionName",
+	oboznachenie_421975,
+	"Name"
+FROM
+	"plm"

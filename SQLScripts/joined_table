@@ -1,0 +1,62 @@
+DROP TABLE IF EXISTS joined;
+
+CREATE TABLE joined AS
+SELECT
+	*
+FROM
+	(
+		WITH
+			plm_u AS (
+				SELECT
+					"s_PK" AS "s_PK_plm",
+					"s_ObjectID" AS "s_ObjectID_plm",
+					"s_Guid" AS "s_Guid_plm",
+					"s_CreationDate",
+					"s_EditDate",
+					"s_ClassID",
+					"s_LogicalObjectGuid",
+					"s_RevisionName",
+					oboznachenie_421975,
+					"Name" AS "Name_plm"
+				FROM
+					"plm"
+			),
+			plmhierarchy_u AS (
+				SELECT
+					"s_PK" AS "s_PK_plmHierarchy",
+					"s_ObjectID" AS "s_ObjectID_plmHierarchy",
+					"s_Guid" AS "s_Guid_plmHierarchy",
+					"s_ParentID",
+					"s_HierarchyLinkID"
+				FROM
+					"plmHierarchy"
+			),
+			classes_u AS (
+				SELECT
+					"PK",
+					"Guid",
+					"GroupID",
+					"BaseClassID",
+					"Name" AS "Name_Classes",
+					"Abstract"
+				FROM
+					"Classes"
+			),
+			joined_table AS (
+				SELECT
+					*
+				FROM
+					plm_u
+					JOIN plmhierarchy_u ON plm_u."s_ObjectID_plm" = plmhierarchy_u."s_ObjectID_plmHierarchy"
+					JOIN classes_u ON plm_u."s_ClassID" = classes_u."PK"
+			)
+		SELECT
+			*
+		FROM
+			joined_table
+	) AS subquery;
+
+SELECT
+	*
+FROM
+	joined

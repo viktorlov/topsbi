@@ -1,0 +1,10 @@
+SELECT
+	"PK",
+	"Guid",
+	"GroupID",
+	"BaseClassID",
+	"Name",
+	"Abstract"
+FROM
+	"Classes"
+-- WHERE "BaseClassID" != 0

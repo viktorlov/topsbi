@@ -1,0 +1,8 @@
+SELECT
+	"s_PK",
+	"s_ObjectID",
+	"s_Guid",
+	"s_ParentID",
+	"s_HierarchyLinkID"
+FROM
+	"plmHierarchy"

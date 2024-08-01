@@ -1,0 +1,7 @@
+select plm."Name" as plm_name
+	, plm.oboznachenie_421975 as plm_item
+	, "Classes"."Name" class_name
+from plm
+join "Classes" on plm."s_ClassID" = "Classes"."PK"
+where plm.oboznachenie_421975 is not null
+order by plm_item, plm_name

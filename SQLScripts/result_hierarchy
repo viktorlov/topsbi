@@ -1,0 +1,29 @@
+WITH RECURSIVE
+	result_hierarchy AS (
+		SELECT
+			"s_ObjectID_plm",
+			"Name_plm",
+			oboznachenie_421975,
+			"Name_Classes",
+			"s_ParentID",
+			1 AS level
+		FROM
+			joined
+		WHERE
+			"s_ParentID" = 1
+		UNION ALL
+		SELECT
+			j."s_ObjectID_plm",
+			j."Name_plm",
+			j.oboznachenie_421975,
+			j."Name_Classes",
+			j."s_ParentID",
+			rh.level + 1 AS level
+		FROM
+			joined AS j
+			JOIN result_hierarchy rh ON j."s_ParentID" = rh."s_ObjectID_plm"
+	)
+SELECT
+	*
+FROM
+	result_hierarchy
