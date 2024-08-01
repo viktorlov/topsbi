@@ -12,6 +12,9 @@ load_dotenv(find_dotenv())
 class PostgresDBClass:
     def __init__(self):
         postgres_access_line = os.getenv('POSTGRES_ACCESS_LINE')
+
+        print(postgres_access_line)
+
         if not postgres_access_line:
             raise ValueError("POSTGRES_ACCESS_LINE environment variable is not set")
         self.postgres_url = f"postgresql://{postgres_access_line}"
