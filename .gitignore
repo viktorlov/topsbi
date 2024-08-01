@@ -6,3 +6,5 @@ __pycache__
 .coverage
 .coveragerc
 logfile.json
+.bin
+.flake8_text_report
