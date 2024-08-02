@@ -27,3 +27,5 @@ SELECT
 	*
 FROM
 	result_hierarchy
+WHERE
+	oboznachenie_421975 IS NOT NULL
